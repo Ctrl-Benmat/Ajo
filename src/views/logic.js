@@ -3,7 +3,7 @@ import {history} from '../history'
 // const token = user && user.token
 const baseurl = "http://142.93.152.229/ajo/api/"
 const loginurl ="auth/login";
-const registerurl ="auth/register";
+// const registerurl ="auth/register";
 // const fetchGroup = "fetch_group?token="+token
 
   export const login = (email, password) =>{
@@ -29,28 +29,6 @@ const registerurl ="auth/register";
     .catch(err=>console.log(err))
   }
 
-
-  export const register =(data) =>{
-    const requestOptions={
-        method:"GET",
-        body:JSON.stringify(data),
-        headers:{
-          "Content-Type":"application/json",
-        }
-      }
-    fetch(baseurl+registerurl, requestOptions)
-    .then(async res=>{
-      const data = await res.json()
-      if(data.status){
-        history.push("/login")
-      }else{
-        alert(data.message)
-      }
-    })
-    .catch(err=>{
-        alert(err)
-    })
-  }
 
   export const logout = () =>{
     // localStorage.clear()

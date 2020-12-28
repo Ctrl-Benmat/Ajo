@@ -38,13 +38,13 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 const Groups = React.lazy(() => import('./Users/group/Groups'));
-const Table = React.lazy(() => import('./Users/group/Table'));
-const Table1 = React.lazy(() => import('./Users/group/Table1'));
+const Table = React.lazy(() => import('./Users/group/tableMembersDetails'));
+const Table1 = React.lazy(() => import('./Users/group/tableManageMembers'));
 const routes = [
   { path: '/home', exact: true, name: 'Home' },
   {path: '/group', name:'Groups', component: Groups },
-  {path: '/table', name:'Table', component:Table},
-  {path: '/table1', name: 'Table1', component:Table1},
+  {path: '/membersDetails', name:'Members Details', component:Table},
+  {path: '/manageMembers', name: 'Manage Members', component:Table1},
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', component: Colors },

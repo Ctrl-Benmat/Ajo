@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form from './Form';
+import Form from './addMemberForm';
 import {
     CWidgetDropdown,
     CWidgetBrand,
@@ -26,7 +26,7 @@ import { logout } from '../../views/logic';
     const token = user && user.token
     this.state={
       modal : false,
-      modals: false,
+      // modals: false,
       allGroups:[],
       token
     }
@@ -82,7 +82,7 @@ import { logout } from '../../views/logic';
           <div style={{width:"100%", height:"100%", backgroundColor:"rgb(255, 255, 255)"}}>
           <CRow>
             {allGroups.map(group=>{
-              const {amount, no_of_members, id} = group
+              const {amount, no_of_members, group_name, id} = group
               return(
             <CCol sm="6" lg="3" key={id}>
               <CWidgetBrand
@@ -92,10 +92,11 @@ import { logout } from '../../views/logic';
                 leftHeader={amount}
                 leftFooter= "Amount"
                 >
-                  <CWidgetDropdown
+                  <CWidgetDropdown 
                   color="warning"
-                  header="Me&friends"
+                  header={group_name}
                   footerSlot={<div style={{width:'278px', height:'52px',}}></div>}
+                  
                   >
                     <CDropdown>
                       <CDropdownToggle color="transparent" >
@@ -103,8 +104,8 @@ import { logout } from '../../views/logic';
                       </CDropdownToggle>
                       <CDropdownMenu className="pt-0" placement="bottom-end">
                         <CDropdownItem onClick={this.handleModal}>AddMember</CDropdownItem>
-                            <CDropdownItem href="/table"> Details</CDropdownItem>
-                        <CDropdownItem href="/table1">Manage</CDropdownItem>
+                            <CDropdownItem href="/membersDetails"> Details</CDropdownItem>
+                        <CDropdownItem href="/manageMembers">Manage</CDropdownItem>
                         <CDropdownItem disabled>Renew</CDropdownItem>
                         <CDropdownItem disabled>Delete</CDropdownItem>
                       </CDropdownMenu>
